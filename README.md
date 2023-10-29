@@ -47,7 +47,7 @@ This command will start a training session using the images under the *train* di
 
 ## Test
 
-Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/...) or [baidu pan](https://pan.baidu.com/s/1VaocTBdpDhHUEEtN1XSrhg?pwd=mrjq)).
+Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/folders/1GXTtzxTRgQFbyTmU1dh0n_Tkxj1Txori?usp=drive_link) or [baidu pan](https://pan.baidu.com/s/1VaocTBdpDhHUEEtN1XSrhg?pwd=mrjq)).
 
 The model netG_A2B.pth translates from synthetic image to pseudo-neuron image, netG_B2A.pth is used in another direction. We are interested in the *A2B* direction.
 
