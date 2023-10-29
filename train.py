@@ -142,19 +142,17 @@ for epoch in range(epochs):
 
         # GAN loss
         fake_B, fake_B_centroid = netG_A2B(real_A)
-        pred_fake = netD_B(fake_B)
-        loss_GAN_A2B = criterion_GAN(pred_fake, target_real)
+        loss_GAN_A2B = criterion_GAN(netD_B(fake_B), target_real)
         loss_GAN_A2B_centroid = criterion_centroid(fake_B_centroid, centroid_A) + \
                                 criterion_centroid(fake_B_centroid, 1-real_B) + \
-                                criterion_GAN(netD_centroidB(fake_B_centroid), target_fake)
+                                criterion_GAN(netD_centroidB(fake_B_centroid), target_real)
 
         fake_A, fake_A_centroid = netG_B2A(real_B)
-        pred_fake = netD_A(fake_A)
-        loss_GAN_B2A = criterion_GAN(pred_fake, target_real)
+        loss_GAN_B2A = criterion_GAN(netD_A(fake_A), target_real)
         loss_GAN_B2A_centroid = criterion_centroid(fake_A_centroid, 1-real_A) + \
-                                criterion_GAN(netD_centroidA(fake_A_centroid), target_fake)
+                                criterion_GAN(netD_centroidA(fake_A_centroid), target_real)
 
-        # Cycle loss
+        # Reconstruction loss
         recovered_A, recovered_A_centroid = netG_B2A(fake_B)
         loss_cycle_ABA = criterion_cycle(recovered_A, real_A)
         loss_cycle_ABA_centroid = criterion_centroid(recovered_A_centroid, centroid_A) + criterion_centroid(recovered_A_centroid, 1-real_A)
