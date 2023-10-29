@@ -2,7 +2,7 @@
 
 We provide PyTorch implementations for unpaired synthetic image to pseudo-neuron image translation.
 
-<img src="https://github.com/zhenzhen89/PseudoNeuronGAN/images/results.png" width="800"/>
+![](https://github.com/zhenzhen89/PseudoNeuronGAN/images/results.png)
 
 
 ## Requirements
