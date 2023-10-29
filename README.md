@@ -4,7 +4,6 @@ We provide PyTorch implementations for unpaired synthetic image to pseudo-neuron
 
 ![](images/results.png)
 
-
 ## Requirements
 - Linux or Windows
 - Python 3
@@ -28,25 +27,10 @@ You can build your own dataset by setting up the following directory structure:
     |   └── B              # Contains domain B images (i.e. neuron)
 
 
-## Test
-
-Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/...) or [baidu pan](https://pan.baidu.com/s/1VaocTBdpDhHUEEtN1XSrhg?pwd=mrjq)).
-
-The model netG_A2B.pth translates from synthetic image to pseudo-neuron image, netG_B2A.pth is used in another direction. We are interested in the *A2B* direction.
-
-```
-python test.py 
-``` 
-
-Note: 
-The model directly translates all the images from the directory *test*. All the results will be saved under the directory of *PseudoNeuronGAN_epochs100*. 
-
-
-
 ## Train
 
 ```
-python train.py 
+python train.py --epochs 100
 ``` 
 
 * `batch_size`: type=int, default=1.
@@ -59,6 +43,20 @@ python train.py
 
 Note: 
 This command will start a training session using the images under the *train* directory. The parameters can be changed. Both generators and discriminators weights will be saved under the directory of *PseudoNeuronGAN_epochs100*. 
+
+
+## Test
+
+Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/...) or [baidu pan](https://pan.baidu.com/s/1VaocTBdpDhHUEEtN1XSrhg?pwd=mrjq)).
+
+The model netG_A2B.pth translates from synthetic image to pseudo-neuron image, netG_B2A.pth is used in another direction. We are interested in the *A2B* direction.
+
+```
+python test.py 
+``` 
+
+Note: 
+The model directly translates all the images from the directory *test*. All the results will be saved under the directory of *PseudoNeuronGAN_epochs100*. 
 
 
 ## Acknowledgments
