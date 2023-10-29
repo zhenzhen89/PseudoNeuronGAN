@@ -59,5 +59,13 @@ Note:
 The model directly translates all the images from the directory *test*. All the results will be saved under the directory of *PseudoNeuronGAN_epochs100*. 
 
 
+## Neuron segmentation
+
+Existing fully supervised deep learning models trained using this pseudo-neuron dataset with location labels can be used to predict the centroids of real neuron images. Neuron instance segmentation can be further performed by applying a competitive region growing algorithm. Experiments show that our model succeeds in generating a pseudo-neuron dataset. This greatly liberated neuroscientists, and the accuracy of location labels is no longer influenced by subjective factors. 
+
+![](images/segmentation.png)
+
+![](images/F-score.png)
+
 ## Acknowledgments
 Our code is inspired by [PyTorch-CycleGAN](https://github.com/aitorzip/PyTorch-CycleGAN).
