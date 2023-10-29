@@ -81,7 +81,7 @@ for i, (input_A, input_B, filename_A, filename_B) in enumerate(test_data_loader)
     fake_A = 0.5 * (netG_B2A(real_B)[0].data + 1.0)
 
     # Save image files
-    filename_predB = (filename_A[0].split('.png', 1)[0] + "_predict.png").split("synthetic/",1)[-1]
-    filename_predA = (filename_B[0].split('.png', 1)[0] + "_predict.png").split("neuron/",1)[-1]
+    filename_predB = (filename_A[0].split('.png', 1)[0] + "_predict.png").split("synthetic\\",1)[-1]
+    filename_predA = (filename_B[0].split('.png', 1)[0] + "_predict.png").split("neuron\\",1)[-1]
     torchvision.utils.save_image(fake_A, f'{obj}/B2A/{filename_predA}')
     torchvision.utils.save_image(fake_B, f'{obj}/A2B/{filename_predB}')
