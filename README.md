@@ -1,10 +1,8 @@
 # PseudoNeuronGAN: Unpaired synthetic image to pseudo-neuron image translation for unsupervised neuron instance segmentation in microscopic images of macaque brain
 
+We provide PyTorch implementations for unpaired synthetic image to pseudo-neuron image translation.
 
 <img src="https://github.com/zhenzhen89/PseudoNeuronGAN/images/results.png" width="800"/>
-
-
-We provide PyTorch implementations for unpaired synthetic image to pseudo-neuron image translation.
 
 
 ## Requirements
@@ -32,7 +30,7 @@ You can build your own dataset by setting up the following directory structure:
 
 ## Test
 
-Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/...)).
+Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/...) or [baidu pan](https://pan.baidu.com/s/1VaocTBdpDhHUEEtN1XSrhg?pwd=mrjq)).
 
 The model netG_A2B.pth translates from synthetic image to pseudo-neuron image, netG_B2A.pth is used in another direction. We are interested in the *A2B* direction.
 
