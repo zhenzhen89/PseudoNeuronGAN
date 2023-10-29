@@ -1,6 +1,9 @@
 # PseudoNeuronGAN: Unpaired synthetic image to pseudo-neuron image translation for unsupervised neuron instance segmentation in microscopic images of macaque brain
 
 
+<img src="https://github.com/zhenzhen89/PseudoNeuronGAN/images/results.png" width="800"/>
+
+
 We provide PyTorch implementations for unpaired synthetic image to pseudo-neuron image translation.
 
 
@@ -13,50 +16,36 @@ We provide PyTorch implementations for unpaired synthetic image to pseudo-neuron
 - torchvision 0.14.0
 
 
-## Test
-Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/...)).conda
+## Dataset
 
-The model netG_A2B.pth translates from synthetic image to pseudo-neuron image, netG_B2A.pth is used in another direction. We are interested in the A2B direction.
+You can build your own dataset by setting up the following directory structure:
+
+    .
+    ├── train              # Training
+    |   ├── A              # Contains domain A images (i.e. synthetic)
+    |   ├── centroid_A     # Contains domain A centroid images (i.e. centroid_synthetic)
+    |   └── B              # Contains domain B images (i.e. neuron)
+    ├── test               # Testing
+    |   ├── A              # Contains domain A images (i.e. synthetic)
+    |   └── B              # Contains domain B images (i.e. neuron)
+
+
+## Test
+
+Download the pre-trained weight in ```PseudoNeuronGAN``` directory ([google drive](https://drive.google.com/drive/...)).
+
+The model netG_A2B.pth translates from synthetic image to pseudo-neuron image, netG_B2A.pth is used in another direction. We are interested in the *A2B* direction.
 
 ```
 python test.py 
 ``` 
 
-Note: The model directly translates all the images in the directory 'test'.
-
-An example of how a folder can look like. 
-```
-/test/synthetic/synthetic_ctx_nbimage14_nbneuron_24_bw.png
-/test/synthetic/synthetic_DG_nbimage5_nbneuron_225_bw.png
-/test/synthetic/synthetic_globus_nbimage24_nbneuron_5_bw.png
-...
-/test/neuron/CJ1301_slide81unsharp_subiculum_para_R.png
-/test/neuron/CJ1301_slide101unsharp_ctx_L_layer2.png
-...
-```
-
-<img src="https://github.com/zhenzhen89/PseudoNeuronGAN/images/results.png" width="800"/>
+Note: 
+The model directly translates all the images from the directory *test*. All the results will be saved under the directory of *PseudoNeuronGAN_epochs100*. 
 
 
 
 ## Train
-
-An example of how a folder can look like. 
-
-```
-/train/synthetic/synthetic_CA_nbimage1_nbneuron_26_bw.png
-/train/synthetic/synthetic_caudate_nbimage1_nbneuron_16_bw.png
-/train/synthetic/synthetic_claustrum_nbimage1_nbneuron_54_bw.png
-...
-/train/centroid_synthetic/synthetic_CA_nbimage1_nbneuron_26_centroid_visual.png
-/train/centroid_synthetic/synthetic_caudate_nbimage1_nbneuron_16_centroid_visual.png
-/train/centroid_synthetic/synthetic_claustrum_nbimage1_nbneuron_54_centroid_visual.png
-...
-/train/neuron/CJ1301_slide81unsharp_CA1_R.png
-/train/neuron/CJ1301_slide81unsharp_globus_pallidus_int_R.png
-/train/neuron/CJ1301_slide101unsharp_DG_R.png
-...
-```
 
 ```
 python train.py 
@@ -70,7 +59,8 @@ python train.py
 * `output_nc` : type=int, default=3.
 
 
-Note: The model directly trains the PseudoNeuronGAN model based the images in the directory 'train'.
+Note: 
+This command will start a training session using the images under the *train* directory. The parameters can be changed. Both generators and discriminators weights will be saved under the directory of *PseudoNeuronGAN_epochs100*. 
 
 
 ## Acknowledgments
