@@ -1,4 +1,4 @@
-# PseudoNeuronGAN: Unpaired synthetic image to pseudo-neuron image translation for unsupervised neuron instance segmentation in microscopic images of macaque brain
+# PseudoNeuronGAN: Unpaired synthetic image to pseudo-neuron image translation for label-free neuron instance segmentation
 
 We provide PyTorch implementations for unpaired synthetic image to pseudo-neuron image translation.
 
